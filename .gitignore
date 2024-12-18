@@ -37,5 +37,6 @@ yarn-error.*
 
 app-example
 
+# Ignore Firebase configuration files
 google-services.json
 GoogleService-Info.plist
