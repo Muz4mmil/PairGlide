@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "578184461034",
+    "project_id": "pairglide",
+    "storage_bucket": "pairglide.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:578184461034:android:1badb2fc3419b44d9bb593",
+        "android_client_info": {
+          "package_name": "com.muz4mmil.pairglide"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "578184461034-8knvop3k5d4hajhb6trocqmsgkaluohe.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDLQq00wmfuLj6sF3En2EVegAD0-7jc-70"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "578184461034-8knvop3k5d4hajhb6trocqmsgkaluohe.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
