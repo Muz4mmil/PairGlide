@@ -1,4 +1,4 @@
-import { auth } from "@/firebase-config";
+import { auth } from "@/configs/firebase-config";
 import { logOut, resetPassword, signIn, signUp } from "@/libs/firebase";
 import { User } from "@firebase/auth";
 import AsyncStorage from "@react-native-async-storage/async-storage";

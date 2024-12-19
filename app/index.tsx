@@ -13,7 +13,7 @@ export default function Index() {
 
   const { loading, user, signup, signin } = useGlobalContext()
 
-  if (!loading && user) return <Redirect href="/home" />
+  if (!loading && user) return <Redirect href="/onboard" />
 
   const [currentScreen, setCurrentScreen] = useState('welcome')
   const [form, setform] = useState({
@@ -33,7 +33,7 @@ export default function Index() {
       try {
         const user = await signup(form.name, form.email, form.password)
         if (user) {
-          router.push('/home')
+          router.push('/onboard')
         } else {
           setError('Failed to create user')
         }
@@ -48,7 +48,7 @@ export default function Index() {
       try {
         await signin(form.email, form.password)
         if (user) {
-          router.push('/home')
+          router.push('/onboard')
         } else {
           setError('Invalid email or password')
         }
