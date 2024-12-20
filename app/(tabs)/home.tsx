@@ -22,8 +22,8 @@ const home = () => {
           Connect with skilled individuals and bring your ideas to life.
         </Text>
 
-        <Button containerStyles='mt-10 w-full bg-sky-200 py-12' title="Find a Partner for My Project" />
-        <Button containerStyles='mt-6 w-full bg-white py-12' title="Find Someone Like Me" />
+        <Button containerStyles='mt-10 w-full bg-sky-200 py-10' title="Find a Partner for My Project" />
+        <Button containerStyles='mt-6 w-full bg-white py-10' title="Find Someone Like Me" />
       </View>
     </SafeAreaView>
   )

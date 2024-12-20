@@ -3,6 +3,8 @@ import { createUserWithEmailAndPassword, sendPasswordResetEmail, signInWithEmail
 import { doc, setDoc, updateDoc } from "firebase/firestore";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import cloudinary from "@/configs/cloudinary-config";
+import { upload } from 'cloudinary-react-native'
+import { fill } from "@cloudinary/url-gen/actions/resize";
 
 
 export const signUp = async (name: string, email: string, password: string) => {
@@ -89,38 +91,23 @@ const getCurrentUser = async () => {
 
 export const updateProfilePicture = async (file: any, user: any) => {
   try {
-    const formData = new FormData();
-    formData.append('file', {
-      uri: file.uri,
-      type: file.type,
-      name: `${user.email.split('@')[0]}.${file.uri.split('.').pop()}`,
-    });
-    formData.append('upload_preset', 'native');
-
-    console.log(formData)
-
-    const response = await fetch(
-      `https://api-ap.cloudinary.com/v1_1/${'dsccpsoaw'}/image/upload`,
-      {
-        method: 'POST',
-        body: formData,
-      }
-    );
-
-    console.log(response)
-    if (!response.ok) {
-      throw new Error('Failed to upload media');
+    const options = {
+      upload_preset: 'native',
+      unsigned: true,
     }
 
-    const data = await response.json();
+    await upload(cloudinary, {
+      file: file.uri, options: options, callback: async (error: any, response: any) => {
+        console.log('Uploaded : ', response)
+        await updateProfile(user, {
+          photoURL: response.secure_url,
+        })
 
-    await updateProfile(user, {
-      photoURL: data.secure_url,
+        await updateDoc(doc(db, "users", user.uid), {
+          photoUrl: response.secure_url,
+        });
+      }
     })
-
-    await updateDoc(doc(db, "users", user.uid), {
-      photoUrl: data.secure_url,
-    });
 
     return true;
   } catch (error) {

@@ -93,12 +93,12 @@ const OnBoard = () => {
     
     const isForward = next > current
     
-    getRef(current).current?.animate({
+    getRef(current)?.current?.animate({
       0: { translateX: 0 },
       1: { translateX: isForward ? -width : width }
     }, 300)
 
-    getRef(next).current?.animate({
+    getRef(next)?.current?.animate({
       0: { translateX: isForward ? width : -width },
       1: { translateX: 0 }
     }, 300)
